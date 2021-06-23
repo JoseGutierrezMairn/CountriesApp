@@ -1,0 +1,27 @@
+
+
+<div *ngIf="resultLength; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+              <th scope="col">Country name</th>
+              <th scope="col">Icon</th>
+              <th scope="col">Population</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let country of results">
+              <td>{{country.name}}</td>  
+              <td><img [src]="country.flag" alt="url" class="card-image-top" style="max-width: 35px; height: 35px;"></td>
+              <td>{{country.population | number}}</td>
+            </tr>
+          </tbody>
+    </table>
+
+</ng-template>
+<ng-template #elseBlock>
+    <h5>Query will be shown here</h5>
+</ng-template>
+
+
